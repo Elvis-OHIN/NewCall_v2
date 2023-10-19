@@ -10,18 +10,17 @@ public static class StudentService
     {
         Students = new List<Student>
         {
-            new Student ( 1, "Classic Italian", "Classic Italian","FA" ),
-            new Student ( 2, "Veggie", "Classic Italian" , "FE" )
+
         };
     }
 
     public static List<Student> GetAll() => Students;
 
-    public static Student? Get(int id) => Students.FirstOrDefault(p => p.Id == id);
+    public static Student? Get(int id) => Students.FirstOrDefault(p => p.id == id);
 
     public static void Add(Student Student)
     {
-        Student.Id = nextId++;
+        Student.id = nextId++;
         Students.Add(Student);
     }
 
@@ -36,7 +35,7 @@ public static class StudentService
 
     public static void Update(Student Student)
     {
-        var index = Students.FindIndex(p => p.Id == Student.Id);
+        var index = Students.FindIndex(p => p.id == Student.id);
         if(index == -1)
             return;
 
